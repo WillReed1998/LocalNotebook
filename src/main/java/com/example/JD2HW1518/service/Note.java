@@ -1,6 +1,6 @@
-package com.example.JD2HW1518;
+package com.example.JD2HW1518.service;
 
-import jakarta.persistence.*;
+//import jakarta.persistence.*;
 import lombok.Data;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 

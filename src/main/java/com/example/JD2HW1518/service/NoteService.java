@@ -1,4 +1,4 @@
-package com.example.JD2HW1518;
+package com.example.JD2HW1518.service;
 
 import org.springframework.stereotype.Service;
 
@@ -13,18 +13,18 @@ public class NoteService {
         return idCounter++;
     };
 
-    List<Note> listAll() {
+     public List<Note> listAll() {
         return new ArrayList<>(notes);
     }
 
-    Note add(Note note) {
+    public Note add(Note note) {
         long id = generatedId();
         note.setId(id);
         notes.add(note);
         return note;
     }
 
-    void deleteById(long id) {
+    public void deleteById(long id) {
         boolean removed = notes.removeIf(note -> note.getId() == id);
         if (!removed) {
             throw new NullPointerException("Id" + id +"already deleted");
@@ -33,7 +33,7 @@ public class NoteService {
 
     }
 
-    void update(Note note) {
+    public void update(Note note) {
         long id = note.getId();
         boolean found = false;
 
