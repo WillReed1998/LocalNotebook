@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <title>Edit Note</title>
+    <style>
+        body {
+            background-color: #f4f4f4; /* Light gray background */
+            display: flex;
+            justify-content: center; /* Center align */
+            align-items: center; /* Center align */
+            height: 100vh; /* Full screen height */
+            flex-direction: column; /* Vertical layout */
+        }
+        .container {
+            margin-top: 20px; /* Top margin */
+        }
+        h1 {
+            text-align: center; /* Center align heading */
+        }
+        /* Adjust field widths */
+        input[type="text"],
+        textarea {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Edit Note</h1>
+    <form th:action="@{/note/edit}" method="post" th:object="${note}" class="row g-3">
+        <input type="hidden" th:field="*{id}">
+        <div class="col-md-6">
+            <label for="title" class="form-label">Title:</label>
+            <input type="text" id="title" name="title" th:field="*{title}" class="form-control">
+        </div>
+        <div class="col-md-6">
+            <label for="content" class="form-label">Content:</label>
+            <textarea id="content" name="content" th:field="*{content}" class="form-control"></textarea>
+        </div>
+        <div class="col-12">
+            <button type="submit" class="btn btn-primary">Save</button>
+            <a th:href="@{/note/list}" class="btn btn-secondary">Go to Note List</a>
+        </div>
+    </form>
+    <br>
+</div>
+</body>
+</html>
