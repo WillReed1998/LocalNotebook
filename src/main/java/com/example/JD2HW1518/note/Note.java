@@ -1,6 +1,6 @@
 package com.example.JD2HW1518.note;
 
-import jakarta.persistence.*;
+import javax.persistence.*;
 import lombok.Data;
 
 @Entity
