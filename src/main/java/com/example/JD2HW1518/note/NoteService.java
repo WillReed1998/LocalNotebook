@@ -14,15 +14,27 @@ public class NoteService {
         return repository.findAll();
     }
 
-    public void save(Note note) {
+    public Note save(Note note) {
         if (note == null) {
             throw new IllegalArgumentException("Note cannot be null");
         }
-        repository.save(note);
+        Note savedNote = repository.save(note);
+        return savedNote;
     }
 
-    public void deleteById(long id) {
-        repository.deleteById(String.valueOf(id));
+    public Note update(String id, Note updatedNote) {
+        if (repository.existsById(id)) {
+            updatedNote.setId(id);
+            Note savedNote = repository.save(updatedNote);
+            return savedNote;
+        } else {
+            throw new NullPointerException("Note with id " + id + " not found");
+        }
+    }
+
+
+    public void deleteById(String id) {
+        repository.deleteById(id);
     }
 
     public Note findById(long id) {
