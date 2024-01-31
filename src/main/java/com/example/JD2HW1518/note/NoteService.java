@@ -18,8 +18,7 @@ public class NoteService {
         if (note == null) {
             throw new IllegalArgumentException("Note cannot be null");
         }
-        Note savedNote = repository.save(note);
-        return savedNote;
+        return repository.save(note);
     }
 
     public Note update(String id, Note updatedNote) {
